@@ -1,10 +1,3 @@
-<!--
- * @Author: xinyue
- * @Date: 2023-04-17 16:32:55
- * @Description: pre-rendering - Static Generation
--->
-# pre-rendering
-
 ---
 title: 'When to Use Static Generation v.s. Server-side Rendering'
 date: '2020-01-02'
