@@ -6,7 +6,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import styles from '../styles/Home.module.css';
-import Layout, {siteTitle} from '../components/Layout';
+import Layout, {siteTitle} from '../components/layout';
 import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts';
 import SuperJSON from 'superjson';
@@ -30,13 +30,13 @@ export async function getStaticProps() {
 // }
 
 
-function Profile() {
-  const { data, error } = useSWR('/api/user', fetch);
+// function Profile() {
+//   const { data, error } = useSWR('/api/user', fetch);
 
-  if (error) return <div>failed to load</div>;
-  if (!data) return <div>loading...</div>;
-  return <div>hello {data.name}!</div>;
-}
+//   if (error) return <div>failed to load</div>;
+//   if (!data) return <div>loading...</div>;
+//   return <div>hello {data.name}!</div>;
+// }
 
 export default function Home({allPostsData}) {
   return (
