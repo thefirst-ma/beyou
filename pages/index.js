@@ -10,7 +10,7 @@ import Layout, {siteTitle} from '../components/Layout';
 import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts';
 import SuperJSON from 'superjson';
-
+import useSWR from 'swr';
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
   // const allPostsData = getServerSideProps();
@@ -28,6 +28,16 @@ export async function getStaticProps() {
 //     },
 //   };
 // }
+
+
+function Profile() {
+  const { data, error } = useSWR('/api/user', fetch);
+
+  if (error) return <div>failed to load</div>;
+  if (!data) return <div>loading...</div>;
+  return <div>hello {data.name}!</div>;
+}
+
 export default function Home({allPostsData}) {
   return (
     <Layout home>
