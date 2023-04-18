@@ -9,12 +9,15 @@ import styles from '../styles/Home.module.css';
 import Layout, {siteTitle} from '../components/Layout';
 import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts';
+import SuperJSON from 'superjson';
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
+  // const allPostsData = getServerSideProps();
   return {
     props: {
       allPostsData,
+      // allPostsData: SuperJSON.stringify(allPostsData),
     },
   };
 }
@@ -23,6 +26,7 @@ export default function Home({allPostsData}) {
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
+        
       </Head>
       <section className={utilStyles.headingMd}>
         <p>hello this is ma xinyue. </p>
@@ -43,6 +47,8 @@ export default function Home({allPostsData}) {
               {date}
             </li>
           ))}
+          {/* {allPostsData} */}
+          <input type='button'></input>
         </ul>
       </section>
     </Layout>

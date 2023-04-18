@@ -4,6 +4,7 @@
  * @Description: 
  */
 import '../styles/globals.css'
+import {OpenAiKEY} from '../lib/keys'
 export default function App({Component, pageProps}) {
     return <Component {...pageProps}></Component>
 }
