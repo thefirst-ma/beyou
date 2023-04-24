@@ -6,6 +6,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image';
+import SiteHeader from './siteHeader'
 import styles from './layou.module.css'
 import utilStyles from '../styles/utils.module.css'
 
@@ -24,7 +25,7 @@ export default function Layout ({
             <link rel="icon" href="/favicon.ico"/>
             <meta
                 name="description"
-                content="Ma XY build a personal website using Next.js"
+                content="Ma XY build a personal website blog maxinyue using Next.js"
             />
             <meta 
                 property='og:image'
@@ -36,6 +37,7 @@ export default function Layout ({
             {/* <meta name="twitter:card" content="summary_large_image" /> */}
         </Head>
         <header className={styles.header}>
+            <SiteHeader></SiteHeader>
             { home ? (
                 <>
                     <Image
