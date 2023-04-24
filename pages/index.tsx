@@ -12,7 +12,8 @@ import { getSortedPostsData } from '../lib/posts';
 import SuperJSON from 'superjson';
 import useSWR from 'swr';
 import Date from '../components/date';
-export async function getStaticProps() {
+import { GetStaticProps } from 'next'
+export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
   // const allPostsData = getServerSideProps();
   return {
@@ -39,14 +40,23 @@ export async function getStaticProps() {
 //   return <div>hello {data.name}!</div>;
 // }
 
-export default function Home({allPostsData}) {
+export default function Home({
+  allPostsData
+}:{
+  allPostsData: {
+    date: string
+    title: string
+    id: string
+  }[]
+}) {
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>welcome to my site. have a good day</p>
+
+        <p>My name is Ma Xin Yue. I am now a front-end engineer. I will show you some personal blogs. I hope you like them</p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         {/* <h2 className={utilStyles.headingLg}>Blog</h2> */}

@@ -1,7 +1,10 @@
 /*
  * @Author: xinyue
  * @Date: 2023-04-17 16:54:33
- * @Description: 
+ * @Description: 博客数据处理
+ * 排序 getSortedPostsData
+ * 获取id getAllPostIds
+ * 根据id获取内容 getPostData
  * Parse each markdown file and get title, date, and file name 
  * (which will be used as id for the post URL)
  * 
@@ -31,7 +34,7 @@ export function getSortedPostsData () {
     // Combine the data with the id
     return {
       id,
-      ...matterResult.data,
+      ...(matterResult.data as {date: string, title: string}),
     };
   });
   // Sort posts by date
@@ -96,6 +99,6 @@ export async function getPostData(id) {
   return {
     id,
     contentHtml,
-    ...matterResult.data,
+    ...(matterResult.data as { date: string; title: string })
   };
 }

@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
         "tailwindcss"
-    ]
+    ],
+    "vue.features.codeActions.enable": false
 }
