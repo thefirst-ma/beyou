@@ -4,10 +4,31 @@
  * @Description: 
  */
 module.exports = {
+    darkMode: 'class', // 启用暗夜模式，并通过类名进行切换
     content : [
         './pages/**/*.{js,jsx,ts,tsx}',
         './components/**/*.{js,,jsx,ts,tsx}'
         // For the best performance and to avoid false positives,
         // be as specific as possible with your content configuration.
-    ]
+    ],
+    theme: {
+        extend: {
+            // 在这里添加暗夜模式下的样式
+            colors: {
+                'regal-blue': '#243c5a',
+            },
+            backgroundColor: {
+                'dark': '#000000',
+            },
+            textColor: {
+                'dark': {
+                    DEFAULT: '#ffffffde',
+                    200: '#ebebeb99',
+                    300: '#ebebeb61',
+                    400: '#ebebeb2e'
+                }
+            },
+        },
+    },
+    plugins: [],
 }

@@ -54,7 +54,7 @@ export default function Home({
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
+      <section className={`${utilStyles.headingMd} dark:text-dark`}>
 
         <p>My name is Ma Xin Yue. I am now a front-end engineer. I will show you some personal blogs. I hope you like them</p>
       </section>

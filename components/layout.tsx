@@ -6,8 +6,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image';
-import SiteHeader from './siteHeader'
-import styles from './layou.module.css'
+import styles from '../styles/layou.module.css'
 import utilStyles from '../styles/utils.module.css'
 
 const name = 'Ma XY'
@@ -20,7 +19,7 @@ export default function Layout ({
     home?: boolean
 }
     ){
-    return <div className={styles.container}>
+    return <div className={`${styles.container} dark:bg-gray-500`}>
         <Head>
             <link rel="icon" href="/favicon.ico"/>
             <meta
@@ -37,7 +36,6 @@ export default function Layout ({
             {/* <meta name="twitter:card" content="summary_large_image" /> */}
         </Head>
         <header className={styles.header}>
-            <SiteHeader></SiteHeader>
             { home ? (
                 <>
                     <Image
@@ -48,7 +46,7 @@ export default function Layout ({
                         width={144}
                         alt=""
                     />
-                    <h1 className={utilStyles.heading2Xl}>{name}</h1>
+                    <h1 className={`${utilStyles.heading2Xl} dark:text-dark`}>{name}</h1>
                 </>
             ) : (
                 <>

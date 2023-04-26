@@ -23,14 +23,14 @@ export default function Post({
 }) {
   return <Layout>
     <Head>
-        <title>{postData.title}</title>
+        <title className='dark:text-dark'>{`${postData.title}`}</title>
     </Head>
     <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
+        <h1 className={ `${utilStyles.headingXl} dark:text-dark`}>{postData.title}</h1>
+        <div className={`${utilStyles.lightText} dark:text-dark`}>
           <Date dateString={postData.date} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <div className='dark:text-dark' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
   </Layout>;
 }
