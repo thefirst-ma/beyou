@@ -54,15 +54,14 @@ export default function Home({
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={`${utilStyles.headingMd} dark:text-dark`}>
-
+      <section className={`${utilStyles.headingMd}`}>
         <p>My name is Ma Xin Yue. I am now a front-end engineer. I will show you some personal blogs. I hope you like them</p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         {/* <h2 className={utilStyles.headingLg}>Blog</h2> */}
-        <ul className={`${utilStyles.list} dark:text-dark`}>
+        <ul className={`${utilStyles.list}`}>
           {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
+            <li className={`${utilStyles.listItem} text-dark-default hover:text-green-400 hover:underline`} key={id}>
               <Link href={`/posts/${id}`}>{title}</Link>
               <br />
               <small className={utilStyles.lightText}>
