@@ -11,6 +11,11 @@ import Date from '../../components/date';
 // Add this import at the top of the file
 import utilStyles from '../../styles/utils.module.css';
 import { GetStaticProps, GetStaticPaths } from 'next';
+// import ReactMarkdown from 'react-markdown';
+// import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+// import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+// import CodeBlock from '../../components/CodeBlock';
+// import Prism from 'prismjs';
 
 export default function Post({
   postData
@@ -21,6 +26,7 @@ export default function Post({
     contentHtml: string
   }
 }) {
+  // const html = Prism.highlight(postData.contentHtml, Prism.languages.javascript, 'javascript');
   return <Layout>
     <Head>
         <title className='dark:text-dark'>{`${postData.title}`}</title>
@@ -31,6 +37,7 @@ export default function Post({
           <Date dateString={postData.date} />
         </div>
         <div className='dark:text-dark' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        {/* <ReactMarkdown components={{ code: CodeBlock }} children={postData.contentHtml} /> */}
       </article>
   </Layout>;
 }

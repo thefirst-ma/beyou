@@ -1,30 +1,32 @@
 ---
 title: 'eventLoop'
 date: '2023-04-20'
-------
+---
 <!--
  * @Author: xinyue
  * @Date: 2023-04-20 16:01:18
  * @Description: 
 -->
-```
+```javascript
 async function async1(){
-console.log(1)
-await async2()
-console.log(2)
+    console.log(1)
+    await async2()
+    console.log(2)
 }
-async function async2()
-console.log(3)
+async function async2() {
+    console.log(3)
 }
 console.log(4)
 setTimeout(function(){
-console.log(5)
+    console.log(5)
 })
 async1()
 new Promise(function(resolve){
-            console.log(6)
-resolve());})
-.then(function(){
-console.log(7)})
+    console.log(6)
+    resolve()
+}).then(function(){
+    console.log(7)
+})
 console.log(8)
 ```
+执行结果 4 1 3 6 8 2 7 5
