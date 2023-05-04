@@ -21,7 +21,7 @@ export default function App({Component, pageProps} : AppProps) {
         localStorage.setItem('isDarkMode', JSON.stringify(newIsDarkMode));
     };
     return (
-        <div className={`${isDarkMode ? 'dark-mode' : 'light-mode'} h-screen`}>
+        <div className={`${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
             <div className='p-4 flex item-center dark:bg-gray-500'>
                 <SiteHeader onDarkModeChange={handleDarkModeChange} isDarkMode={isDarkMode}></SiteHeader>
             </div>

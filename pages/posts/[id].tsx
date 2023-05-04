@@ -24,7 +24,7 @@ export default function Post({
     title: string
     date: string
     contentHtml: string,
-    readingTimeMinutes: string
+    readingTimeMinutes: string,
   }
 }) {
   // const html = Prism.highlight(postData.contentHtml, Prism.languages.javascript, 'javascript');
@@ -39,7 +39,7 @@ export default function Post({
           <span>{postData.readingTimeMinutes}MIN READ</span>
         </div>
         <div className='dark:text-dark' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-        {/* <ReactMarkdown components={{ code: CodeBlock }} children={postData.contentHtml} /> */}
+        {/* <ReactMarkdown>{matterResult.content}</ReactMarkdown> */}
       </article>
   </Layout>;
 }
