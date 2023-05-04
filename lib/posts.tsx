@@ -15,7 +15,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import html from 'remark-html';
 import { remark } from 'remark';
-import CodeBlock from '../components/codeBlock';
+// import CodeBlock from '../components/codeBlock';
 
 // fetches data from the file system
 const postsDirectory = path.join(process.cwd(), 'posts')
