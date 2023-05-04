@@ -85,6 +85,7 @@ export function getAllPostIds() {
     };
   });
 }
+
 export async function getPostData(id) {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
@@ -96,10 +97,14 @@ export async function getPostData(id) {
     .use(html)
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
+
+  const wordCount = contentHtml.trim().split(/\s+/g).length;
+  const readingTimeMinutes =Math.ceil( wordCount / 200); // Assuming 200 words per minute reading speed
   // Combine the data with the id and contentHtml
   return {
     id,
     contentHtml,
+    readingTimeMinutes,
     ...(matterResult.data as { date: string; title: string })
   };
 }

@@ -3,8 +3,8 @@
  * @Date: 2023-04-12 22:32:03
  * @Description: 
  */
-import '../styles/globals.css'
 import '../styles/tailwind.css';
+import '../styles/globals.css'
 import { AppProps } from 'next/app';
 import SiteHeader from '../components/siteHeader'
 import { useState, useEffect } from 'react';

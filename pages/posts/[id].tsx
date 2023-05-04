@@ -23,7 +23,8 @@ export default function Post({
   postData: {
     title: string
     date: string
-    contentHtml: string
+    contentHtml: string,
+    readingTimeMinutes: string
   }
 }) {
   // const html = Prism.highlight(postData.contentHtml, Prism.languages.javascript, 'javascript');
@@ -33,8 +34,9 @@ export default function Post({
     </Head>
     <article>
         <h1 className={ `${utilStyles.headingXl} dark:text-dark`}>{postData.title}</h1>
-        <div className={`${utilStyles.lightText} dark:text-dark`}>
-          <Date dateString={postData.date} />
+        <div className={`${utilStyles.lightText} dark:text-dark text-xs`}>
+          <Date dateString={postData.date} /> |
+          <span>{postData.readingTimeMinutes}MIN READ</span>
         </div>
         <div className='dark:text-dark' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         {/* <ReactMarkdown components={{ code: CodeBlock }} children={postData.contentHtml} /> */}

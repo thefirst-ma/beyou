@@ -36,7 +36,7 @@ export default function Layout ({
             {/* <meta name="twitter:card" content="summary_large_image" /> */}
         </Head>
         <header className={styles.header}>
-            { home ? (
+            {/* { home ? (
                 <>
                     <Image
                         priority
@@ -50,7 +50,7 @@ export default function Layout ({
                 </>
             ) : (
                 <>
-                    {/* <Link href="/">
+                    <Link href="/">
                         <Image
                             priority
                             src="/images/profile.jpg"
@@ -64,9 +64,9 @@ export default function Layout ({
                         <Link href="/" className={utilStyles.colorInherit}>
                             {name}
                         </Link>
-                    </h2> */}
+                    </h2>
                 </>
-            ) }
+            ) } */}
         </header>
         <main>{children}</main>
         {!home && (

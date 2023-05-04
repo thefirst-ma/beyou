@@ -55,7 +55,8 @@ export default function Home({
         <title>{siteTitle}</title>
       </Head>
       <section className={`${utilStyles.headingMd}`}>
-        <p>My name is Ma Xin Yue. I am now a front-end engineer. I will show you some personal blogs. I hope you like them</p>
+        <p>我叫马鑫岳，来自河南禹州的一个乡村，现在是一名初级的前端开发工程师。平常使用<a href=''>CSS3（sass）</a>，<a href=''>javascript（es6）</a>，<a href=''>vue（2/3）</a>，<a href=''>element-ui</a>，<a href=''>webpack（3/4）</a>，<a href=''>node（10/14）</a>，<a href=''>typescript</a></p>
+        <p>My name is Ma Xin Yue. I am now a front-end engineer. I hope you like them</p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         {/* <h2 className={utilStyles.headingLg}>Blog</h2> */}
