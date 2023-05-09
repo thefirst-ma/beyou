@@ -60,7 +60,7 @@ export default function Home({
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         {/* <h2 className={utilStyles.headingLg}>Blog</h2> */}
-        <ul className={`${utilStyles.list}`}>
+        {/* <ul className={`${utilStyles.list}`}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={`${utilStyles.listItem} text-dark-default hover:text-green-400 hover:underline`} key={id}>
               <Link href={`/posts/${id}`}>{title}</Link>
@@ -70,7 +70,26 @@ export default function Home({
               </small>
             </li>
           ))}
-        </ul>
+        </ul> */}
+        <div className="grid grid-cols-2 gap-4">
+          {allPostsData.map(({ id, date, title }) => (
+            <li
+              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg"
+              key={id}
+            >
+              <div className="aspect-w-1 aspect-h-0.618">
+                <Link className='text-lg font-medium px-4' href={`/posts/${id}`}>
+                {title}
+                </Link>
+                  <a className="block px-4 py-2 hover:bg-gray-100">
+                    <small className="text-gray-500">
+                      <Date dateString={date} />
+                    </small>
+                  </a>
+              </div>
+            </li>
+          ))}
+        </div>
       </section>
     </Layout>
   )
