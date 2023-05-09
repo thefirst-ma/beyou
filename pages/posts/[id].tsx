@@ -11,12 +11,10 @@ import Date from '../../components/date';
 // Add this import at the top of the file
 import utilStyles from '../../styles/utils.module.css';
 import { GetStaticProps, GetStaticPaths } from 'next';
-// import ReactMarkdown from 'react-markdown';
-// import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-// import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-// import CodeBlock from '../../components/CodeBlock';
-// import Prism from 'prismjs';
-
+import ReactMarkdown from 'react-markdown';
+import rehypeHighlight from 'rehype-highlight'
+require('highlight.js/styles/github-dark.css');
+// require('highlight.js/styles/github.css');
 export default function Post({
   postData
 }: {
@@ -24,6 +22,7 @@ export default function Post({
     title: string
     date: string
     contentHtml: string,
+    contentMD: string,
     readingTimeMinutes: string,
   }
 }) {
@@ -38,8 +37,10 @@ export default function Post({
           <Date dateString={postData.date} /> |
           <span>{postData.readingTimeMinutes}MIN READ</span>
         </div>
-        <div className='dark:text-dark' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-        {/* <ReactMarkdown>{matterResult.content}</ReactMarkdown> */}
+        {/* <div className='dark:text-dark' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
+        <ReactMarkdown 
+        rehypePlugins={[rehypeHighlight]} 
+        children={postData.contentMD}></ReactMarkdown>
       </article>
   </Layout>;
 }

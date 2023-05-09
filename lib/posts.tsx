@@ -91,7 +91,10 @@ export async function getPostData(id) {
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
   // Use gray-matter to parse the post metadata section
-  const matterResult = matter(fileContents);
+  const matterResult = matter(fileContents, {
+    excerpt: true,
+    excerpt_separator: '<!-- end -->',
+  });
 
   const processedContent = await remark()
     .use(html)
@@ -103,6 +106,7 @@ export async function getPostData(id) {
   // Combine the data with the id and contentHtml
   return {
     id,
+    contentMD:matterResult.content,
     contentHtml,
     readingTimeMinutes,
     ...(matterResult.data as { date: string; title: string })

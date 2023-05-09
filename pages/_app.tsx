@@ -9,13 +9,16 @@ import { AppProps } from 'next/app';
 import SiteHeader from '../components/siteHeader'
 import { useState, useEffect } from 'react';
 export default function App({Component, pageProps} : AppProps) {
-    const [isDarkMode, setIsDarkMode] = useState(false);
-
+    const [isDarkMode, setIsDarkMode] = useState(null);
+    
     useEffect(() => {
         const storedIsDarkMode = JSON.parse(localStorage.getItem('isDarkMode'));
         setIsDarkMode(storedIsDarkMode === true);
     }, []);
-
+    if (isDarkMode === null) {
+        // 还未获取到 isDarkMode 状态，先使用默认样式
+        return <div className="light-mode">Loading...</div>;
+      }
     const handleDarkModeChange = (newIsDarkMode) => {
         setIsDarkMode(newIsDarkMode);
         localStorage.setItem('isDarkMode', JSON.stringify(newIsDarkMode));
