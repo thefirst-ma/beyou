@@ -29,11 +29,11 @@ export default function Post({
   // const html = Prism.highlight(postData.contentHtml, Prism.languages.javascript, 'javascript');
   return <Layout>
     <Head>
-        <title className='dark:text-dark'>{`${postData.title}`}</title>
+        <title className=''>{`${postData.title}`}</title>
     </Head>
     <article>
-        <h1 className={ `${utilStyles.headingXl} dark:text-dark`}>{postData.title}</h1>
-        <div className={`${utilStyles.lightText} dark:text-dark text-xs`}>
+        <h1 className={ `${utilStyles.headingXl} `}>{postData.title}</h1>
+        <div className={`${utilStyles.lightText} text-xs`}>
           <Date dateString={postData.date} /> |
           <span>{postData.readingTimeMinutes}MIN READ</span>
         </div>

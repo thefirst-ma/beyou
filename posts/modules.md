@@ -85,3 +85,5 @@ date: '2023-05-04'
 #### 参考链接
 + [Javascript模块化编程（一）：模块的写法](https://www.ruanyifeng.com/blog/2012/10/javascript_module.html)
 + [ES6教程-阮一峰 module](https://es6.ruanyifeng.com/#docs/module)
+
+![hello](../public/images/profile.jpg)

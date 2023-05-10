@@ -19,7 +19,7 @@ export default function Layout ({
     home?: boolean
 }
     ){
-    return <div className={`${styles.container} dark:bg-gray-500`}>
+    return <div className={`${styles.container}`}>
         <Head>
             <link rel="icon" href="/favicon.ico"/>
             <meta

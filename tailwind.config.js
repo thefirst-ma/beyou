@@ -19,6 +19,7 @@ module.exports = {
             },
             backgroundColor: {
                 'dark': '#000000',
+                'soft-dark': '#0c1218'
             },
             textColor: {
                 'dark': {
