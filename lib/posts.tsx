@@ -86,6 +86,7 @@ export function getAllPostIds() {
   });
 }
 
+
 export async function getPostData(id) {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
@@ -93,8 +94,26 @@ export async function getPostData(id) {
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents, {
     excerpt: true,
-    excerpt_separator: '<!-- end -->',
   });
+  // 处理Markdown文件
+  function replaceByMultipleRegexps(content: string, regexps: {before: RegExp, after: string}[]): string {
+    let newContent = content;
+    regexps.forEach((regexpObj) => {
+      newContent = newContent.replace(regexpObj.before, regexpObj.after);
+    });
+    return newContent;
+  }
+  const regexps = [
+    {
+      before: /\.\.\/public\/images/g,
+      after: '/images'
+    },
+    {
+      before: /<!--[\s\S]*?-->/g,
+      after: ''
+    }
+  ];
+  const contentMD = replaceByMultipleRegexps(matterResult.content, regexps);
 
   const processedContent = await remark()
     .use(html)
@@ -106,7 +125,7 @@ export async function getPostData(id) {
   // Combine the data with the id and contentHtml
   return {
     id,
-    contentMD:matterResult.content,
+    contentMD,
     contentHtml,
     readingTimeMinutes,
     ...(matterResult.data as { date: string; title: string })
