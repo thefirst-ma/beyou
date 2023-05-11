@@ -30,6 +30,6 @@ export const render = {
   h3: MyHeadingRenderer,
   h4: MyHeadingRenderer,
   ul: MyListRenderer,
-  code: MyCodeRenderer,
+  // code: MyCodeRenderer,
 };
 
