@@ -10,7 +10,7 @@ import styles from '../styles/layou.module.css'
 import utilStyles from '../styles/utils.module.css'
 
 const name = 'Ma XY'
-export const siteTitle = 'Ma XY NEXT'
+export const siteTitle = 'Be You blog'
 export default function Layout ({
     children, 
     home
@@ -24,7 +24,7 @@ export default function Layout ({
             <link rel="icon" href="/favicon.ico"/>
             <meta
                 name="description"
-                content="Ma XY build a personal website blog maxinyue using Next.js"
+                content="Ma XY build a personal website blog maxinyue 马鑫岳 using Next.js"
             />
             <meta 
                 property='og:image'
