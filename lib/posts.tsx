@@ -105,10 +105,6 @@ export async function getPostData(id) {
   }
   const regexps = [
     {
-      regex: /<a(.*?)>/g,
-      replacement: '<a$1 target="_blank">',
-    },
-    {
       before: /\.\.\/public\/images/g,
       after: '/images'
     },

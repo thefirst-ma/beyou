@@ -14,7 +14,8 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import ReactMarkdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight'
 require('highlight.js/styles/github-dark.css');
-// require('highlight.js/styles/github.css');
+
+import { render } from '../../lib/markdownRenderers';
 export default function Post({
   postData
 }: {
@@ -26,7 +27,6 @@ export default function Post({
     readingTimeMinutes: string,
   }
 }) {
-  // const html = Prism.highlight(postData.contentHtml, Prism.languages.javascript, 'javascript');
   return <Layout>
     <Head>
         <title className=''>{`${postData.title}`}</title>
@@ -38,7 +38,8 @@ export default function Post({
           <span>{postData.readingTimeMinutes}MIN READ</span>
         </div>
         {/* <div className='dark:text-dark' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
-        <ReactMarkdown 
+        <ReactMarkdown
+        components={render}
         rehypePlugins={[rehypeHighlight]} 
         children={postData.contentMD}></ReactMarkdown>
       </article>
