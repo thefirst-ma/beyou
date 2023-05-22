@@ -8,4 +8,4 @@ date: '2023-05-17'
  * @Description: 
 -->
 #### java简介
-![1684289157051](image/java/1684289157051.png)
+![java特性](../public/images/java特性.png)

@@ -14,6 +14,9 @@ interface MyHeadingRendererProps {
   level: number;
   children: ReactNode;
 }
+interface MyRenderers {
+  [key: string]: React.FC<any>;
+}
 
 export const MyHeadingRenderer: React.FC<MyHeadingRendererProps> = ({ level, children }) => {
   const HeadingComponent = `h${level}` as keyof JSX.IntrinsicElements;
@@ -27,7 +30,7 @@ export const MyCodeRenderer = ({ children }) => (
   <code className="bg-gray-100 text-gray-800 rounded-md p-.5">{children}</code>
 );
 
-export const render = {
+export const render: MyRenderers = {
   a: MyLinkRenderer,
   h1: MyHeadingRenderer,
   h2: MyHeadingRenderer,
