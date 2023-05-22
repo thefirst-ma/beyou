@@ -47,7 +47,7 @@ date: '2023-05-10'
    + 3xx 重定向
       + 301 Moved Permanently：被请求的资源已永久移动到新位置。
       + 302 Found：被请求的资源暂时移动到不同的URL。
-        + 304 Not Modified：资源未被修改，可以使用缓存的版本。
+      + 304 Not Modified：资源未被修改，可以使用缓存的版本。
    + 4xx 客户端错误
       + 400 bad request，请求报文存在语法错误
       + 401 unauthorized，表示发送的请求需要有通过 HTTP 认证的认证信息

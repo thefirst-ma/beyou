@@ -10,16 +10,16 @@ export const MyLinkRenderer = ({ href, children }) => (
     {children}
   </a>
 );
-// interface MyHeadingRendererProps {
-//   level: number;
-//   children: ReactNode;
-// }
+interface MyHeadingRendererProps {
+  level: number;
+  children: ReactNode;
+}
 
-// export const MyHeadingRenderer: React.FC<MyHeadingRendererProps> = ({ level, children }) => {
-//   const HeadingComponent = `h${level}`;
-//   const headingStyles = `text-${7 - level}xl font-bold mt-4 mb-2`;
-//   return <HeadingComponent className={headingStyles}>{children}</HeadingComponent>;
-// };
+export const MyHeadingRenderer: React.FC<MyHeadingRendererProps> = ({ level, children }) => {
+  const HeadingComponent = `h${level}` as keyof JSX.IntrinsicElements;
+  const headingStyles = `text-${7 - level}xl font-bold mt-4 mb-2`;
+  return <HeadingComponent className={headingStyles}>{children}</HeadingComponent>;
+};
 
 export const MyListRenderer = ({ children }) => <ul className="list-disc ml-6">{children}</ul>;
 
@@ -29,10 +29,10 @@ export const MyCodeRenderer = ({ children }) => (
 
 export const render = {
   a: MyLinkRenderer,
-  // h1: MyHeadingRenderer,
-  // h2: MyHeadingRenderer,
-  // h3: MyHeadingRenderer,
-  // h4: MyHeadingRenderer,
+  h1: MyHeadingRenderer,
+  h2: MyHeadingRenderer,
+  h3: MyHeadingRenderer,
+  h4: MyHeadingRenderer,
   ul: MyListRenderer,
   // code: MyCodeRenderer,
 };
