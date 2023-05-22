@@ -6,8 +6,11 @@
 module.exports = {
     darkMode: 'class', // 启用暗夜模式，并通过类名进行切换
     content : [
-        './pages/**/*.{js,jsx,ts,tsx}',
-        './components/**/*.{js,,jsx,ts,tsx}'
+        './app/**/*.{js,ts,jsx,tsx,mdx}', // Note the addition of the `app` directory.
+        './pages/**/*.{js,ts,jsx,tsx,mdx}',
+        './components/**/*.{js,ts,jsx,tsx,mdx}',
+    
+        './src/**/*.{js,ts,jsx,tsx,mdx}',
         // For the best performance and to avoid false positives,
         // be as specific as possible with your content configuration.
     ],
