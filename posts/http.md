@@ -66,3 +66,4 @@ date: '2023-05-10'
 + [http1.0](https://www.ietf.org/rfc/rfc1945.txt)
 + [http1.1](https://www.ietf.org/rfc/rfc2616.txt)
 + [前端面试 语雀](https://www.yuque.com/cuggz/interview/cdpgm0#XxfgG)
++ [http 与 Https 使用信鸽来解释](https://www.freecodecamp.org/news/https-explained-with-carrier-pigeons-7029d2193351/)
