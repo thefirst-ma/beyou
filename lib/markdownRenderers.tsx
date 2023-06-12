@@ -20,14 +20,14 @@ interface MyRenderers {
 
 export const MyHeadingRenderer: React.FC<MyHeadingRendererProps> = ({ level, children }) => {
   const HeadingComponent = `h${level}` as keyof JSX.IntrinsicElements;
-  const headingStyles = `text-${7 - level}xl font-bold mt-4 mb-2`;
+  const headingStyles = `text-1xl font-bold mt-4 mb-2`;
   return <HeadingComponent className={headingStyles}>{children}</HeadingComponent>;
 };
 
 export const MyListRenderer = ({ children }) => <ul className="list-disc ml-6">{children}</ul>;
 
 export const MyCodeRenderer = ({ children }) => (
-  <code className="bg-gray-100 text-gray-800 rounded-md p-.5">{children}</code>
+  <code className="bg-gray-100 text-gray-800 rounded-md">{children}</code>
 );
 
 export const render: MyRenderers = {

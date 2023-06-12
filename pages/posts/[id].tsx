@@ -39,9 +39,9 @@ export default function Post({
         </div>
         {/* <div className='dark:text-dark' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
         <ReactMarkdown
-        components={render}
-        rehypePlugins={[rehypeHighlight]} 
-        children={postData.contentMD}></ReactMarkdown>
+          components={render}
+          rehypePlugins={[rehypeHighlight]} 
+          children={postData.contentMD}></ReactMarkdown>
       </article>
   </Layout>;
 }

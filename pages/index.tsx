@@ -129,6 +129,7 @@ export default function Home({
           onChange={handleInputChange}
         />
       </header>
+      <div className='font-bold mt-4 mb-2 list-disc ml-6 text-blue-500 hidden text-3xl'></div>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <div className="grid grid-cols-2 gap-4">
           {searchResults.map(({ id, date, title }) => (
