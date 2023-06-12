@@ -20,15 +20,18 @@ interface MyRenderers {
 
 export const MyHeadingRenderer: React.FC<MyHeadingRendererProps> = ({ level, children }) => {
   const HeadingComponent = `h${level}` as keyof JSX.IntrinsicElements;
-  const headingStyles = `text-1xl font-bold mt-4 mb-2`;
+  const headingStyles = `text-1xl mt-4 mb-2`;
   return <HeadingComponent className={headingStyles}>{children}</HeadingComponent>;
 };
 
 export const MyListRenderer = ({ children }) => <ul className="list-disc ml-6">{children}</ul>;
+export const MyLiRenderer = ({ children }) => <li className="mt-2">{children}</li>;
+export const MyPRenderer = ({ children }) => <p className="mt-2">{children}</p>;
 
-export const MyCodeRenderer = ({ children }) => (
-  <code className="bg-gray-100 text-gray-800 rounded-md">{children}</code>
-);
+export const MyCodeRenderer = ({ children, className }) => {
+  const codeClassNames =  className ? `${className} mt-2` : "font-bold border-b";
+  return <code className={codeClassNames}>{children}</code>
+};
 
 export const render: MyRenderers = {
   a: MyLinkRenderer,
@@ -37,6 +40,8 @@ export const render: MyRenderers = {
   h3: MyHeadingRenderer,
   h4: MyHeadingRenderer,
   ul: MyListRenderer,
-  // code: MyCodeRenderer,
+  code: MyCodeRenderer,
+  p: MyPRenderer,
+  li: MyLiRenderer
 };
 
