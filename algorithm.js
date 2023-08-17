@@ -64,3 +64,10 @@ function find (dataname, dataset) {
     // arr.forEach(item => console.log(item))
 }
 find('d1.json', jsonArr)
+
+function randomArr (arr) {
+    return arr.sort((a, b)=> {
+        // [0, 1)
+        return Math.random() - Math.random()
+    })
+}
