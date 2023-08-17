@@ -71,3 +71,23 @@ function randomArr (arr) {
         return Math.random() - Math.random()
     })
 }
+
+function get (arr, vlaue) {
+    let left = arr[0];
+    let length = arr.length;
+    let right = arr.at(length - 1);
+        while(left < right) {
+            let middleLength = Math.ceil(length / 2)
+            let middle = arr[middleLength]
+            if(middle < value) {
+                left = middle;
+            } else if (middle > value) {
+                if(right = middle) left = right;
+                right = middle;
+            } else if (middle == value) {
+                left = middle;
+                return;
+            }
+        }
+        return left;
+  }

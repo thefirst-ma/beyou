@@ -49,25 +49,55 @@ function sortNumber (arr, value) {
 //     return 中间值
 //     查找值 4
 //     1 22 左右值比较 第一次进入循环
-//     3 中间索引 [1, 3, 5, 7, 9, 11, 22]
+//     3 中间索引 [1, 3, 5, 7, 9, 11, 22] Math.floor(length / 2)  
 //     1 7 22 左值 中间值 右值
 //     更新后 
 //     1 5 7 左值 中间值 右值
 
-//     2        第二次进入循环 1, 3, 5, 7
+//     2     (3+1) / 2    第二次进入循环 1, 3, 5, 7
 //     1 5 7
 
-//     1        第三次进入循环 1, 3, 5
+//     1    (2 + 1) / 2    第三次进入循环 1, 3, 5
 //     1 3 5
 
-//     3 5
-//     1        第四次进入循环 3, 5
+//     3 5 
+//     1    (3 - 1) / 2 + 1    第四次进入循环 3, 5
 //     3 5 5
+
+
+//     查找值 10
+//     1 22 左右值比较 第一次进入循环
+//     3 中间索引 [1, 3, 5, 7, 9, 11, 22] Math.floor(length / 2)  
+//     1 7 22 左值 中间值 右值
+//     更新后 
+//     7 11 22 左值 中间值 右值
+
+//     5    (7 - 3) / 2 + 3    第二次进入循环 7, 9, 11, 22
+//     7 11 22
+
+//     4   (5 + 3) / 2    第三次进入循环 1, 3, 5
+//     7 9 11
+
+//     3 5 
+//     1    (3 - 1) / 2 + 1    第四次进入循环 3, 5
+//     3 5 5
+
 let left = arr[0];
-let lenght = arr.length;
-let right = arr.at(-1);
-    while(left < right) {
-        let middle = 
-    }
+    let length = arr.length;
+    let right = arr.at(length - 1);
+        while(left < right) {
+            let middleLength = Math.ceil(length / 2)
+            let middle = arr[middleLength]
+            if(middle < value) {
+                left = middle;
+            } else if (middle > value) {
+                if(right = middle) left = right;
+                right = middle;
+            } else if (middle == value) {
+                left = middle;
+                return;
+            }
+        }
+        return left;
 }
 ```
