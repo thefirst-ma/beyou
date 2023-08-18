@@ -26,6 +26,7 @@ function randomArr (arr) {
     })
 }
 ```
+
 2. 二分查找元素
 
 > 输入：有序的数组 指定元素 arr value
@@ -33,17 +34,18 @@ function randomArr (arr) {
 > 背景知识：[while循环](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/while)
 
 ```javascript
-let arr = [1, 3, 5, 7, 9, 11, 22];
-function sortNumber (arr, value) {
 // 左值left 数组中间位置的值middle 右值right 要查找的值value
 // 想要找到离得查找的值最近的那个右侧的数 
 // 当 中间值小于要找的值（判断不准确 只能知道）
-// 当 左值小于右值 一直循环 [直到左值大于右值|中间值等于输入值] => 结束循环 
- 
+// 当 左值小于右值 一直循环 [中间值等于输入值 | 直到右值索引比左值索引大一] => 结束循环 
+
+
+//  中间值 == 输入值 直到右值索引比左值索引大一 跳出循环
 //  if 中间值 > 查找值
 //      right = middle;
-        // 中间值索引更新 总共七个元素 3 -> 3 + 2 = 5 中间值索引 = 当前索引 / 2 + 偏移量
-//         右值 == 中间值 左值等于中间值 跳出循环
+        // 中间值索引更新1.0 总共七个元素 3 -> 3 + 2 = 5 中间值索引 = 当前索引 / 2 + 偏移量
+        // 右值索引更新2.0 
+
 //  else if 中间值 < 查找值
 //      left = middle
 //  else 中间值 = 查找值
@@ -83,22 +85,40 @@ function sortNumber (arr, value) {
 //     1    (3 - 1) / 2 + 1    第四次进入循环 3, 5
 //     3 5 5
 
-let left = arr[0];
+let arr = [1, 3, 5, 7, 9, 11, 22];
+function sortNumber (arr, value) {
+    let result = undefined;
+    let resultIndex = -1;
     let length = arr.length;
-    let right = arr.at(length - 1);
-        while(left < right) {
-            let middleLength = Math.ceil(length / 2)
-            let middle = arr[middleLength]
-            if(middle < value) {
-                left = middle;
-            } else if (middle > value) {
-                if(right = middle) left = right;
-                right = middle;
-            } else if (middle == value) {
-                left = middle;
-                return;
-            }
+    let leftIndex = 0;
+    let rightIndex = length - 1;
+    let left = arr[0];
+    let right = arr[arr.length - 1];
+    let middleIndex = 0;
+    if(value > right) return -1;
+    while(left < right) {
+        middleIndex = Math.floor((leftIndex + rightIndex) / 2);
+        let middle = arr[middleIndex];
+        if(middle == value) {
+            left = middle;
+            result = middle;
+            resultIndex = middleIndex;
+            break;
         }
-        return left;
+        if(rightIndex - leftIndex == 1) {
+            result = right;
+            resultIndex = rightIndex;
+            break;
+        }
+        if (middle > value) {
+            right = middle;
+            rightIndex = middleIndex;
+        } else if (middle < value) {
+            left = middle;
+            leftIndex = middleIndex;
+        }
+    }
+    return {result, resultIndex};
 }
+console.log(sortNumber(arr, 23));
 ```

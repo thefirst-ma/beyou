@@ -37,41 +37,37 @@ function printNumber (n, m) {
 // printNumber(6, 4)
 let arr = [1, 3, 5, 7, 9, 11, 22];
 function sortNumber (arr, value) {
-    // let result = 0;
-    // let leftLength = 0;
+    let result = undefined;
+    let resultIndex = -1;
     let length = arr.length;
     let leftIndex = 0;
     let rightIndex = length - 1;
     let left = arr[0];
     let right = arr[arr.length - 1];
-    // let middleIndex = Math.floor(length / 2);
-    let middleIndex = Math.floor((leftIndex + rightIndex) / 2);
-    let offset = 0;
+    let middleIndex = 0;
     if(value > right) return -1;
     while(left < right) {
+        middleIndex = Math.floor((leftIndex + rightIndex) / 2);
         let middle = arr[middleIndex];
         if(middle == value) {
             left = middle;
-            // result = middleIndex;
+            result = middle;
+            resultIndex = middleIndex;
             break;
-        } else if (middle > value) {
-            // if(middleIndex == 1) {
-            //     middleIndex++
-            // }
-            // middleIndex = Math.floor(middleIndex / 2 + offset);
+        }
+        if(rightIndex - leftIndex == 1) {
+            result = right;
+            resultIndex = rightIndex;
+            break;
+        }
+        if (middle > value) {
             right = middle;
             rightIndex = middleIndex;
         } else if (middle < value) {
             left = middle;
             leftIndex = middleIndex;
-            // offset += middleIndex;
-            // if(middleIndex == 1) {
-            //     middleIndex = 1 + offset;
-            // }else {
-            //     middleIndex = Math.floor(middleIndex / 2) + offset;
-            // }
         }
     }
-    return {number: left, middleIndex};
+    return {result, resultIndex};
 }
-console.log(sortNumber(arr, 2));
+console.log(sortNumber(arr, 23));
