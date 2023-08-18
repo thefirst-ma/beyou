@@ -35,34 +35,37 @@ function printNumber (n, m) {
     }
 }
 // printNumber(6, 4)
-
 let arr = [1, 3, 5, 7, 9, 11, 22];
 function sortNumber (arr, value) {
+    // let leftIndex = 0;
+    // let rightIndex = length - 1;
+    // let result = 0;
+    // let leftLength = 0;
     let left = arr[0];
     let length = arr.length;
     let right = arr[arr.length - 1];
-    let result = 0;
-    let leftLength = 0;
+    let middleIndex = Math.floor(length / 2);
+    let offset = 0;
+    if(value > right) return -1;
     while(left < right) {
-        let middleLength = Math.floor(length / 2);
-        let middle = arr[middleLength]
+        let middle = arr[middleIndex];
         if(middle == value) {
             left = middle;
-            result = middleLength;
-            // leftLength = middleLength;
-            return;
+            // result = middleIndex;
+            break;
         } else if (middle > value) {
-            result = middleLength;
-            if(right == middle) {
-                left = right;
-            } 
-            right = middle;
-            // length = middleLength + leftLength;
+            middleIndex = Math.floor(middleIndex / 2 + offset);
+            // right = middle;
         } else if (middle < value) {
             left = middle;
-            length = ((length - middleLength) / 2 + leftLength) * 2;
+            offset += middleIndex;
+            if(middleIndex == 1) {
+                middleIndex = 1 + offset;
+            }else {
+                middleIndex = Math.floor(middleIndex / 2) + offset;
+            }
         }
     }
-    return {number: left, result};
+    return {number: left, middleIndex};
 }
 console.log(sortNumber(arr, 2));

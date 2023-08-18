@@ -30,7 +30,7 @@ function randomArr (arr) {
 
 > 输入：有序的数组 指定元素 arr value
 > 输出：arr中刚比value大一点的那个数的索引，没有返回-1
-> 背景知识：while循环
+> 背景知识：[while循环](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/while)
 
 ```javascript
 let arr = [1, 3, 5, 7, 9, 11, 22];
@@ -38,10 +38,11 @@ function sortNumber (arr, value) {
 // 左值left 数组中间位置的值middle 右值right 要查找的值value
 // 想要找到离得查找的值最近的那个右侧的数 
 // 当 中间值小于要找的值（判断不准确 只能知道）
-// 当 左值小于右值
+// 当 左值小于右值 一直循环 [直到左值大于右值|中间值等于输入值] => 结束循环 
  
 //  if 中间值 > 查找值
 //      right = middle;
+        // 中间值索引更新 总共七个元素 3 -> 3 + 2 = 5 中间值索引 = 当前索引 / 2 + 偏移量
 //         右值 == 中间值 左值等于中间值 跳出循环
 //  else if 中间值 < 查找值
 //      left = middle
