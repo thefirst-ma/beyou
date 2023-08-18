@@ -39,10 +39,10 @@ let arr = [1, 3, 5, 7, 9, 11, 22];
 function sortNumber (arr, value) {
     // let result = 0;
     // let leftLength = 0;
+    let length = arr.length;
     let leftIndex = 0;
     let rightIndex = length - 1;
     let left = arr[0];
-    let length = arr.length;
     let right = arr[arr.length - 1];
     // let middleIndex = Math.floor(length / 2);
     let middleIndex = Math.floor((leftIndex + rightIndex) / 2);
